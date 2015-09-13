@@ -8,12 +8,13 @@ using Vector = Engine.MapGenerator.Models.Vector;
 namespace Engine.MapGenerator {
     public class Generator {
         private readonly HashSet<Center> _centers = new HashSet<Center>();
-        private readonly ArrayList _cornerMap = new ArrayList();
         private readonly HashSet<Corner> _corners = new HashSet<Corner>();
+        private readonly HashSet<Edge> _edges = new HashSet<Edge>();
+        private readonly HashSet<Vector> _points = new HashSet<Vector>();
+
+        private readonly ArrayList _cornerMap = new ArrayList();
         private readonly int _size;
-        private HashSet<Edge> _edges = new HashSet<Edge>();
         private VoronoiGraph _graph; //FIXME
-        private HashSet<Vector> _points;
         private VoronoiGraph _voronoiGraph;
 
         public Generator(int size) {
@@ -25,7 +26,6 @@ namespace Engine.MapGenerator {
         }
 
         private void GenerateSquareGrid(int size) {
-            _points = new HashSet<Vector>();
             for (var x = 0; x < size; x++) {
                 for (var y = 0; y < size; y++) {
                     _points.Add(new Vector(x, y));
@@ -47,8 +47,8 @@ namespace Engine.MapGenerator {
                 _centers.Add(center);
                 centerLookup[point] = center;
             }
-            foreach (var libedge in libedges) {
-                var delaunayEdge = libedge.
+            foreach (Models.Delaunay.Edge libedge in libedges) {
+                var delaunayEdge = libedge.edge // TODO: Make voronai edge castable to Delaunay
             }
         }
 

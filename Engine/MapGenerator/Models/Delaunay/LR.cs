@@ -8,7 +8,7 @@
             _name = name;
         }
 
-        static LR Other(LR leftRight) {
+        public static LR Other(LR leftRight) {
             return leftRight == Left ? Right : Left;
         }
 

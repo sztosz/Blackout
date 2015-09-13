@@ -45,6 +45,7 @@
     <Compile Include="MapGenerator\Models\Biomes.cs" />
     <Compile Include="MapGenerator\Models\Center.cs" />
     <Compile Include="MapGenerator\Models\Corner.cs" />
+    <Compile Include="MapGenerator\Models\Delaunay\BoundsCheck.cs" />
     <Compile Include="MapGenerator\Models\Delaunay\Edge.cs" />
     <Compile Include="MapGenerator\Models\Delaunay\LR.cs" />
     <Compile Include="MapGenerator\Models\Delaunay\Site.cs" />

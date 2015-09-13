@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using Engine.MapGenerator.Models.Delaunay;
 
 namespace Engine.MapGenerator.Models {
     public class Vector : IEnumerable, IComparable {
@@ -282,6 +283,13 @@ namespace Engine.MapGenerator.Models {
         /// <returns></returns>
         public virtual Vector Clone() {
             return new Vector(_data);
+        }
+
+        public static double Dist(Vector vector, Site site) {
+            if (vector.Dimension != 2) {
+                return -1;
+            }
+            return Math.Pow(vector.X - site.X, 2) + Math.Pow(vector.Y - site.Y, 2); ;
         }
     }
 }
